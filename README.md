@@ -38,3 +38,11 @@ Das obige Diagramm (importierbar via diagrams.net) visualisiert mein Datenmodell
 ## Persönlicher Anwendungsfall
 
 Dieses Projekt ist für mich ein zentrales Tool im privaten Kundenmanagement. Es ermöglicht mir, alle relevanten Informationen zu Kunden, Verträgen, Projekten und Rechnungen an einem Ort zu bündeln und bei Bedarf schnell darauf zuzugreifen. Mit der fortlaufenden Erweiterung des Systems passe ich es kontinuierlich an meine individuellen Bedürfnisse an.
+
+
+## Installation
+Für die Datebank verwende ich einen MySQL Server. Zu dem ist das Tool das ich verwende MySQL Workbench.
+```bash
+brew services start mysql #auf MacOS über brew den Service MySQL starten.
+mysql -u root #verbindung testen
+```
