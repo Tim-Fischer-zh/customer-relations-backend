@@ -13,4 +13,5 @@ public class CustomerRelationsContext : DbContext
     public DbSet<Invoices> Invoices { get; set; }
     public DbSet<Projects> Projects { get; set; }
     public DbSet<Contracts> Contracts { get; set; }
+    public DbSet<Admin> Admins {get; set;}
 }

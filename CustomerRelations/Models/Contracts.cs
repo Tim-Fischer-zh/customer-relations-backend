@@ -4,7 +4,6 @@ namespace CustomerRelations.Models;
 
 public class Contracts{
 
-    public Contracts() {}
 
     public int Id { get; set; }
     public string? FileAddress { get; set; }
