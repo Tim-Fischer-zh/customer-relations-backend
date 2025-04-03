@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using CustomerRelations.Models;
 
-
-namespace CustomerRelations.Models;
+namespace CustomerRelations.Data;
 
 public class CustomerRelationsContext : DbContext
 {
@@ -9,7 +9,7 @@ public class CustomerRelationsContext : DbContext
     {
         
     }
-    public DbSet<CustomerRelations> Customers { get; set; }
+    public DbSet<Customer> Customers { get; set; }
     public DbSet<Invoices> Invoices { get; set; }
     public DbSet<Projects> Projects { get; set; }
     public DbSet<Contracts> Contracts { get; set; }

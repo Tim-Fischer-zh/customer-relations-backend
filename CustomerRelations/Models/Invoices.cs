@@ -17,5 +17,5 @@ public class Invoices{
 
     [ForeignKey("Customer")]
     public int CustomerId { get; set; }
-    public CustomerRelations Customer { get; set; }
+    public Customer Customer { get; set; }
 }

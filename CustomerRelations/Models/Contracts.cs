@@ -16,7 +16,7 @@ public class Contracts{
     public int CustomerId { get; set; }
 
     // Navigation Property
-    public CustomerRelations Customer { get; set; }
+    public Customer Customer { get; set; }
 
     // Optionale Navigation für Projekte
     public ICollection<Projects> Projects { get; set; }

@@ -5,7 +5,7 @@ using System.Diagnostics.Contracts;
 
 namespace CustomerRelations.Models;
 
-public class CustomerRelations{
+public class Customer{
 
     [Key]
     public int Id { get; set; }

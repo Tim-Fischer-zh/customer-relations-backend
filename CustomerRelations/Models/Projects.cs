@@ -4,7 +4,6 @@ using System.Diagnostics.Contracts;
 namespace CustomerRelations.Models;
 
 public class Projects{
-    public Projects() {}
     public int Id { get; set; }
     public string? ProjectName { get; set; } 
     public DateOnly? StartDate { get; set; }
@@ -16,6 +15,6 @@ public class Projects{
     [ForeignKey("Contract")]
     public int ContractId { get; set; }
 
-    public CustomerRelations Customer { get; set; }
+    public Customer Customer { get; set; }
     public Contracts Contract { get; set; }
 }
