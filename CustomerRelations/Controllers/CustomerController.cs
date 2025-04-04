@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using CustomerRelations.Models;
 using CustomerRelations.Services;
 using Microsoft.AspNetCore.Authorization;
+using CustomerRelations.DTO;
 
 namespace CustomerRelations.Controllers;
 
@@ -15,6 +16,14 @@ public class CustomerController : ControllerBase
         _customerService = customerService;
     }
     
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> GetAllAvailableAsync()
+    {
+        var customers = _customerService.GetAllAvailableCustomersAsync();
+        return Ok(customers);
+    }
+
     [Authorize]
     [HttpGet("getall")]
     public async Task<IActionResult> GetAllAsync()
@@ -33,9 +42,29 @@ public class CustomerController : ControllerBase
 
     [Authorize]
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] Customer customer)
+    public async Task<IActionResult> Create([FromBody] CustomerCreateDto dto)
     {
-        var newCustomer = await _customerService.CreateCustomerAsync(customer);
-        return CreatedAtAction(nameof(GetByIdAsync), new { id = newCustomer.Id }, newCustomer);
+        var customer = new Customer 
+        {
+            FirmName = dto.FirmName,
+            PersonalName = dto.PersonalName,
+            PersonalLastName = dto.PersonalLastName,
+            Email = dto.Email,
+            PhoneNumber = dto.PhoneNumber,
+            Address = dto.Address,
+            Branch = dto.Branch
+            
+        };
+        
+        await _customerService.CreateCustomerAsync(customer);
+        return CreatedAtAction(nameof(GetByIdAsync), new { id = customer.Id }, customer);
+    }
+
+    [Authorize]
+    [HttpDelete("{id}")]
+    public async Task<Customer> DeleteCustomerAsync(int id)
+    {
+        var customer = _customerService.DeleteCustomerAsync(id);
+        return await customer;
     }
 }
